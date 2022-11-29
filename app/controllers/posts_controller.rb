@@ -3,12 +3,12 @@ class PostsController < ApplicationController
 
   def index
     posts = Post.all
-    render json: posts
+    render json: posts, exclude: [:created_at, :updated_at]
   end
 
   def show
     post = Post.find(params[:id])
-    render json: post
+    render json: post, exclude: [:created_at, :updated_at]
   end
 
   private
